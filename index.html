@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>RU$H∆L | Website Maker</title>
 
 <style>
@@ -12,128 +13,584 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  background: #050505;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+html {
+  scroll-behavior: smooth;
 }
 
-.container {
-  width: 100%;
-  max-width: 450px;
-  text-align: center;
-  padding: 35px 25px;
-  border: 1px solid #292929;
-  border-radius: 25px;
-  background: #101010;
-  box-shadow: 0 0 40px rgba(255,255,255,0.08);
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050505;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* NAVBAR */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(5,5,5,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #222;
 }
 
 .logo {
-  width: 90px;
-  height: 90px;
-  margin: auto;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  font-weight: bold;
-  background: white;
-  color: black;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
 
-h1 {
-  margin-top: 20px;
-  font-size: 32px;
-}
-
-.tagline {
+nav a {
   color: #aaa;
-  margin-top: 8px;
-}
-
-.description {
-  margin: 25px 0;
-  line-height: 1.6;
-  color: #ddd;
-}
-
-.services {
-  text-align: left;
-  margin: 20px 0;
-}
-
-.service {
-  background: #181818;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 12px;
-  border: 1px solid #292929;
-}
-
-.contact {
-  display: block;
   text-decoration: none;
-  background: white;
-  color: black;
-  padding: 16px;
-  border-radius: 14px;
-  font-weight: bold;
-  margin-top: 25px;
+  font-size: 14px;
 }
 
-.contact:hover {
+/* HERO */
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 70px 20px;
+  background:
+    radial-gradient(circle at top, #292929 0%, #080808 45%, #050505 100%);
+}
+
+.hero-content {
+  max-width: 750px;
+  animation: fadeUp 1s ease;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid #333;
+  border-radius: 30px;
+  color: #aaa;
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(45px, 10vw, 85px);
+  line-height: 1;
+  letter-spacing: 3px;
+}
+
+.hero h1 span {
+  color: #aaa;
+}
+
+.hero p {
+  color: #aaa;
+  max-width: 600px;
+  margin: 25px auto;
+  font-size: 17px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 25px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 6px;
+  transition: 0.3s;
+}
+
+.primary {
+  background: #fff;
+  color: #000;
+}
+
+.primary:hover {
+  transform: translateY(-4px);
   background: #ddd;
 }
 
+.secondary {
+  border: 1px solid #333;
+  color: #fff;
+}
+
+.secondary:hover {
+  background: #181818;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 80px 7%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-title h2 {
+  font-size: 35px;
+}
+
+.section-title p {
+  color: #777;
+  margin-top: 8px;
+}
+
+/* SERVICES */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.service {
+  background: #101010;
+  border: 1px solid #252525;
+  padding: 28px;
+  border-radius: 18px;
+  transition: 0.3s;
+}
+
+.service:hover {
+  transform: translateY(-7px);
+  border-color: #555;
+}
+
+.icon {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.service h3 {
+  margin-bottom: 8px;
+}
+
+.service p {
+  color: #888;
+  font-size: 14px;
+}
+
+/* PROCESS */
+
+.process {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.step {
+  padding: 25px;
+  background: #0e0e0e;
+  border: 1px solid #222;
+  border-radius: 16px;
+}
+
+.number {
+  font-size: 13px;
+  color: #777;
+}
+
+/* PRICING */
+
+.price-box {
+  max-width: 400px;
+  margin: auto;
+  padding: 35px;
+  text-align: center;
+  background: linear-gradient(145deg,#151515,#0b0b0b);
+  border: 1px solid #333;
+  border-radius: 22px;
+}
+
+.price {
+  font-size: 45px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.price-box p {
+  color: #888;
+}
+
+.price-box ul {
+  list-style: none;
+  text-align: left;
+  margin: 25px 0;
+}
+
+.price-box li {
+  padding: 7px 0;
+  color: #ccc;
+}
+
+/* CTA */
+
+.cta {
+  text-align: center;
+  background: #101010;
+  border: 1px solid #222;
+  border-radius: 25px;
+  padding: 60px 20px;
+}
+
+.cta h2 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.cta p {
+  color: #888;
+  margin-bottom: 25px;
+}
+
+/* FOOTER */
+
 footer {
-  margin-top: 25px;
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid #222;
   color: #666;
-  font-size: 12px;
+  font-size: 13px;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+  nav {
+    padding: 16px 5%;
+  }
+
+  section {
+    padding: 60px 5%;
+  }
+
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero h1 {
+    letter-spacing: 1px;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- NAVBAR -->
 
-  <div class="logo">R</div>
+<nav>
+  <div class="logo">RU$H∆L</div>
 
-  <h1>RU$H∆L</h1>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <p class="tagline">WEBSITE MAKER 💻</p>
 
-  <p class="description">
-    Need a website for your brand, business or personal profile?
-    <br>
-    I'll help you create a modern and mobile-friendly website.
-  </p>
+<!-- HERO -->
 
-  <div class="services">
-    <div class="service">🌐 Custom Websites</div>
-    <div class="service">📱 Mobile Friendly Design</div>
-    <div class="service">⚡ Modern & Clean UI</div>
-    <div class="service">🎨 Custom Design</div>
+<div class="hero">
+
+  <div class="hero-content">
+
+    <div class="badge">
+      💻 WEBSITE MAKER
+    </div>
+
+    <h1>
+      Build Your<br>
+      <span>Digital Presence.</span>
+    </h1>
+
+    <p>
+      Need a modern website for your brand, business,
+      portfolio or personal profile?
+      RU$H∆L can build it for you.
+    </p>
+
+    <a
+      class="btn primary"
+      href="https://t.me/yourklass"
+      target="_blank">
+      📩 Contact RU$H∆L
+    </a>
+
+    <a
+      class="btn secondary"
+      href="#services">
+      Explore Services
+    </a>
+
   </div>
-
-  <a class="contact"
-     href="https://t.me/yourklass"
-     target="_blank">
-     📩 CONTACT RU$H∆L
-  </a>
-
-  <footer>
-    © 2026 RU$H∆L • Website Maker
-  </footer>
 
 </div>
 
+
+<!-- SERVICES -->
+
+<section id="services">
+
+  <div class="section-title">
+
+    <h2>What I Build</h2>
+
+    <p>
+      Simple, modern and mobile-friendly websites.
+    </p>
+
+  </div>
+
+  <div class="services">
+
+    <div class="service">
+
+      <div class="icon">🌐</div>
+
+      <h3>Personal Website</h3>
+
+      <p>
+        A professional website for your personal
+        profile, bio or portfolio.
+      </p>
+
+    </div>
+
+
+    <div class="service">
+
+      <div class="icon">💼</div>
+
+      <h3>Business Website</h3>
+
+      <p>
+        Showcase your business, services and
+        contact information online.
+      </p>
+
+    </div>
+
+
+    <div class="service">
+
+      <div class="icon">🎨</div>
+
+      <h3>Custom Design</h3>
+
+      <p>
+        A unique design made according to your
+        style, brand and requirements.
+      </p>
+
+    </div>
+
+
+    <div class="service">
+
+      <div class="icon">📱</div>
+
+      <h3>Mobile Friendly</h3>
+
+      <p>
+        Your website will look great on phones,
+        tablets and computers.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section>
+
+  <div class="section-title">
+
+    <h2>How It Works</h2>
+
+    <p>
+      Simple process from idea to website.
+    </p>
+
+  </div>
+
+
+  <div class="process">
+
+    <div class="step">
+
+      <div class="number">01</div>
+
+      <h3>Tell Me Your Idea</h3>
+
+      <p>
+        Tell me what kind of website you need.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="number">02</div>
+
+      <h3>Design</h3>
+
+      <p>
+        I'll create the design and structure.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="number">03</div>
+
+      <h3>Build</h3>
+
+      <p>
+        Your website is developed and tested.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="number">04</div>
+
+      <h3>Launch</h3>
+
+      <p>
+        Your website goes live on the internet.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section>
+
+  <div class="section-title">
+
+    <h2>Starting Price</h2>
+
+    <p>
+      Affordable websites for everyone.
+    </p>
+
+  </div>
+
+
+  <div class="price-box">
+
+    <h3>Basic Website</h3>
+
+    <div class="price">
+      ₹50+
+    </div>
+
+    <p>
+      Starting price — final price depends
+      on your requirements.
+    </p>
+
+    <ul>
+
+      <li>✓ Modern design</li>
+
+      <li>✓ Mobile friendly</li>
+
+      <li>✓ Custom sections</li>
+
+      <li>✓ Contact button</li>
+
+      <li>✓ Free GitHub Pages hosting</li>
+
+    </ul>
+
+    <a
+      class="btn primary"
+      href="https://t.me/yourklass"
+      target="_blank">
+      Get Started
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+  <div class="cta">
+
+    <h2>Need A Website?</h2>
+
+    <p>
+      Let's turn your idea into a website.
+    </p>
+
+    <a
+      class="btn primary"
+      href="https://t.me/yourklass"
+      target="_blank">
+      📩 Contact @yourklass
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  © 2026 RU$H∆L — Website Maker
+
+</footer>
+
 </body>
-  </html>
+</html>
